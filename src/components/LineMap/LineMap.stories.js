@@ -17,11 +17,11 @@ Default.args = {
     color: Palette.RED_400,
     stations: [
       {
-        key: '1',
+        id: 1,
         name: '강남역1',
       },
       {
-        key: '2',
+        id: 2,
         name: '강남역2',
       },
     ],

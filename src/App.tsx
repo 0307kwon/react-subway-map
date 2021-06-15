@@ -2,9 +2,11 @@ import React, { useEffect, VFC } from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import Subway from './components/@common/Icon/Subway';
+import ModalProvider from './components/@common/ModalProvider/ModalProvider';
 import Header from './components/@shared/Header/Header';
 import Main from './components/@shared/Main/Main';
 import Navigation from './components/@shared/Navigation/Navigation';
+import LineAddModal from './components/LinesAddModal/LineAddModal';
 import { APP_TITLE, COMMON_NAV_LIST, PAGE_INFO } from './constants/appInfo';
 import { Palette } from './constants/palette';
 import useCurrentAPIInfo from './hooks/@shared/useCurrentAPIInfo/useCurrentAPIInfo';
@@ -37,29 +39,31 @@ const App: VFC = () => {
         <Navigation navigatingPageInfoList={COMMON_NAV_LIST} />
       </Header>
       <Main>
-        <Switch>
-          <Route exact path={PAGE_INFO.HOME.path}>
-            <Home />
-          </Route>
-          <Route path={PAGE_INFO.SIGN_UP.path}>
-            <Signup />
-          </Route>
-          <Route path={PAGE_INFO.LOGIN.path}>
-            <Login />
-          </Route>
-          <Route path={PAGE_INFO.STATIONS.path}>
-            <Stations />
-          </Route>
-          <Route path={PAGE_INFO.LINES.path}>
-            <Lines />
-          </Route>
-          <Route path={PAGE_INFO.SECTIONS.path}>
-            <Sections />
-          </Route>
-          <Route path={PAGE_INFO.FULL_MAP.path}>
-            <FullMap />
-          </Route>
-        </Switch>
+        <ModalProvider>
+          <Switch>
+            <Route exact path={PAGE_INFO.HOME.path}>
+              <Home />
+            </Route>
+            <Route path={PAGE_INFO.SIGN_UP.path}>
+              <Signup />
+            </Route>
+            <Route path={PAGE_INFO.LOGIN.path}>
+              <Login />
+            </Route>
+            <Route path={PAGE_INFO.STATIONS.path}>
+              <Stations />
+            </Route>
+            <Route path={PAGE_INFO.LINES.path}>
+              <Lines />
+            </Route>
+            <Route path={PAGE_INFO.SECTIONS.path}>
+              <Sections />
+            </Route>
+            <Route path={PAGE_INFO.FULL_MAP.path}>
+              <FullMap />
+            </Route>
+          </Switch>
+        </ModalProvider>
       </Main>
     </>
   );

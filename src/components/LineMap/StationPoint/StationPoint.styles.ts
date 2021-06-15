@@ -25,7 +25,6 @@ export const StationPointContainer = styled.li<StationPointProps>`
   }
 
   ${({ canTransfer }) => {
-    console.log('요건가용', canTransfer);
     return canTransfer && transferStation;
   }}
 `;

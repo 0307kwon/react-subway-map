@@ -30,8 +30,6 @@ export const loadStations = createAsyncThunk<
       return transferInfo;
     });
 
-    console.log('요롷게 들어옴', stationsWithTransfer);
-
     return stationsWithTransfer;
   } catch (error) {
     return rejectWithValue(error.response.data);

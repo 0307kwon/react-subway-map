@@ -14,8 +14,7 @@ const StationPoint: VFC<Props> = ({ station }) => {
   const { stations } = useSelector((state: RootState) => state.station);
   const targetStation: Station = useMemo(() => {
     const dummyStation = {
-      id: -1,
-      name: '',
+      ...station,
       transfer: [],
     };
 
@@ -32,6 +31,7 @@ const StationPoint: VFC<Props> = ({ station }) => {
 
     return target;
   }, [stations]);
+  console.log(targetStation);
 
   const canTransfer = (station: Station) => station.transfer.length > 1;
 
